@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Spring Boot Blog Application</h1>
+		<hr />
+		<div class="posts-Container">
+			<div class="post" th:each="post :${posts}">
+				<h2>
+					<a th:href="@{'/posts/'} +${post.postId}" 
+					   th:text="post.title">Title</a>
+				</h2>
+
+				<h5 th:text="'PUBLISHED On ' +${post.createdOn}">Created At</h5>
+				<p th:text="${post.content}">Body Text</p>
+				<br />
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
